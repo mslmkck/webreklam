@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HanTech - Building Smart Mobile Apps for Everyday Life</title>
+    <meta name="description" content="HanTech develops modern mobile applications that simplify daily tasks and empower users.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#2563EB',
+                        secondary: '#7C3AED',
+                        dark: {
+                            900: '#020617',
+                            800: '#0F172A',
+                            700: '#1E293B',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'gradient': 'gradient 8s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        gradient: {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #020617;
+            overflow-x: hidden;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #2563EB 0%, #7C3AED 50%, #2563EB 100%);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradient 8s linear infinite;
+        }
+        
+        .glass-card {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .glow-effect {
+            position: relative;
+        }
+        
+        .glow-effect::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #2563EB, #7C3AED, #2563EB);
+            background-size: 400% 400%;
+            z-index: -1;
+            border-radius: inherit;
+            animation: gradient 3s ease infinite;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .glow-effect:hover::before {
+            opacity: 1;
+        }
+        
+        .tech-badge {
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid rgba(37, 99, 235, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .tech-badge:hover {
+            background: rgba(37, 99, 235, 0.2);
+            border-color: #2563EB;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px -10px rgba(37, 99, 235, 0.5);
+        }
+        
+        .app-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .app-card:hover {
+            transform: translateY(-8px);
+        }
+        
+        .gradient-bg {
+            background: radial-gradient(ellipse at 20% 20%, rgba(37, 99, 235, 0.15) 0%, transparent 50%),
+                        radial-gradient(ellipse at 80% 80%, rgba(124, 58, 237, 0.15) 0%, transparent 50%);
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(180deg, #020617 0%, #0F172A 50%, #020617 100%);
+        }
+        
+        .nav-blur {
+            backdrop-filter: blur(20px);
+            background: rgba(2, 6, 23, 0.8);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px -10px rgba(37, 99, 235, 0.5);
+        }
+        
+        .btn-outline {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline:hover {
+            border-color: #2563EB;
+            background: rgba(37, 99, 235, 0.1);
+        }
+        
+        .phone-mockup {
+            background: linear-gradient(145deg, #1E293B 0%, #0F172A 100%);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 40px;
+            box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.5);
+        }
+        
+        .phone-screen {
+            background: linear-gradient(180deg, #1E293B 0%, #0F172A 100%);
+            border-radius: 32px;
+            overflow: hidden;
+        }
+        
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #020617;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #1E293B;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2563EB;
+        }
+        
+        .form-input {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            border-color: #2563EB;
+            background: rgba(30, 41, 59, 0.8);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #2563EB;
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .coming-soon-overlay {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+        }
+
+        .coming-soon-badge {
+            background: linear-gradient(135deg, #F59E0B 0%, #EF4444 100%);
+        }
+
+        /* Language Selector Styles */
+        .lang-selector {
+            position: relative;
+        }
+
+        .lang-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 0.5rem;
+            background: rgba(30, 41, 59, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 0.5rem;
+            min-width: 120px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .lang-selector:hover .lang-dropdown,
+        .lang-dropdown.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .lang-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0.75rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .lang-option:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .lang-option.active {
+            background: rgba(37, 99, 235, 0.2);
+        }
+
+        .lang-flag {
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body class="text-white antialiased">
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 nav-blur border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 md:h-20">
+                <a href="#" class="flex items-center space-x-2">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+                        <span class="font-display font-bold text-white text-xl">H</span>
+                    </div>
+                    <span class="font-display font-bold text-xl">HanTech</span>
+                </a>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#apps" class="text-gray-400 hover:text-white transition-colors" data-i18n="nav.apps">Our Apps</a>
+                    <a href="#about" class="text-gray-400 hover:text-white transition-colors" data-i18n="nav.about">About</a>
+                    <a href="#tech" class="text-gray-400 hover:text-white transition-colors" data-i18n="nav.tech">Technology</a>
+                    <a href="#contact" class="btn-primary px-6 py-2.5 rounded-full font-medium" data-i18n="nav.contact">Contact Us</a>
+                    
+                    <!-- Language Selector -->
+                    <div class="lang-selector">
+                        <button class="flex items-center space-x-2 px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 transition-colors">
+                            <span id="current-lang-flag">🇬🇧</span>
+                            <span id="current-lang-code" class="text-sm font-medium">EN</span>
+                            <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                        </button>
+                        <div class="lang-dropdown" id="lang-dropdown">
+                            <div class="lang-option active" data-lang="en">
+                                <span class="lang-flag">🇬🇧</span>
+                                <span class="text-sm">English</span>
+                            </div>
+                            <div class="lang-option" data-lang="tr">
+                                <span class="lang-flag">🇹🇷</span>
+                                <span class="text-sm">Türkçe</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button id="mobile-menu-btn" class="md:hidden p-2">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden nav-blur border-t border-white/5">
+            <div class="px-4 py-4 space-y-3">
+                <a href="#apps" class="block py-2 text-gray-400 hover:text-white transition-colors" data-i18n="nav.apps">Our Apps</a>
+                <a href="#about" class="block py-2 text-gray-400 hover:text-white transition-colors" data-i18n="nav.about">About</a>
+                <a href="#tech" class="block py-2 text-gray-400 hover:text-white transition-colors" data-i18n="nav.tech">Technology</a>
+                <a href="#contact" class="block py-2 text-primary font-medium" data-i18n="nav.contact">Contact Us</a>
+                
+                <!-- Mobile Language Selector -->
+                <div class="flex items-center space-x-4 py-2 border-t border-white/10 mt-2 pt-3">
+                    <span class="text-sm text-gray-400" data-i18n="nav.language">Language:</span>
+                    <button class="lang-switch-mobile flex items-center space-x-2 px-3 py-2 rounded-lg bg-white/5" data-lang="en">
+                        <span>🇬🇧</span>
+                        <span class="text-sm">EN</span>
+                    </button>
+                    <button class="lang-switch-mobile flex items-center space-x-2 px-3 py-2 rounded-lg bg-white/5" data-lang="tr">
+                        <span>🇹🇷</span>
+                        <span class="text-sm">TR</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="relative min-h-screen hero-gradient flex items-center pt-20 overflow-hidden">
+        <!-- Background Effects -->
+        <div class="absolute inset-0 gradient-bg"></div>
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/20 rounded-full blur-[120px]"></div>
+        
+        <!-- Floating Particles -->
+        <div class="particle" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
+        <div class="particle" style="top: 40%; left: 80%; animation-delay: 1s;"></div>
+        <div class="particle" style="top: 60%; left: 20%; animation-delay: 2s;"></div>
+        <div class="particle" style="top: 80%; left: 70%; animation-delay: 3s;"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right" data-aos-duration="1000">
+                    <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass-card mb-6">
+                        <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                        <span class="text-sm text-gray-300" data-i18n="hero.badge">Available for projects</span>
+                    </div>
+                    
+                    <h1 class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-tight mb-6">
+                        <span data-i18n="hero.title1">Building </span><span class="gradient-text" data-i18n="hero.title2">Smart Mobile Apps</span><span data-i18n="hero.title3"> for Everyday Life</span>
+                    </h1>
+                    
+                    <p class="text-lg sm:text-xl text-gray-400 mb-8 max-w-xl" data-i18n="hero.subtitle">
+                        HanTech develops modern mobile applications that simplify daily tasks and empower users.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#apps" class="btn-primary px-8 py-4 rounded-full font-semibold text-center flex items-center justify-center space-x-2">
+                            <span data-i18n="hero.cta1">View Our Apps</span>
+                            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#contact" class="btn-outline px-8 py-4 rounded-full font-semibold text-center" data-i18n="hero.cta2">
+                            Contact Us
+                        </a>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-left" data-aos-duration="1000" class="relative">
+                    <!-- App Mockup -->
+                    <div class="relative mx-auto w-72 sm:w-80 animate-float">
+                        <div class="phone-mockup p-3">
+                            <div class="phone-screen aspect-[9/19] relative">
+                                <!-- Mockup Header -->
+                                <div class="absolute top-0 left-0 right-0 p-4 bg-gradient-to-b from-primary/20 to-transparent">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-xs font-medium">9:41</span>
+                                        <div class="flex items-center space-x-1">
+                                            <i data-lucide="signal" class="w-3 h-3"></i>
+                                            <i data-lucide="wifi" class="w-3 h-3"></i>
+                                            <i data-lucide="battery-full" class="w-3 h-3"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Mockup Content -->
+                                <div class="pt-16 px-4">
+                                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-secondary mb-4 flex items-center justify-center">
+                                        <span class="font-display font-bold text-white text-lg">H</span>
+                                    </div>
+                                    <div class="h-2 w-20 bg-white/20 rounded mb-2"></div>
+                                    <div class="h-2 w-32 bg-white/10 rounded mb-6"></div>
+                                    
+                                    <!-- App Cards -->
+                                    <div class="space-y-3">
+                                        <div class="glass-card rounded-xl p-3 flex items-center space-x-3">
+                                            <div class="w-10 h-10 rounded-lg bg-primary/30 flex items-center justify-center">
+                                                <i data-lucide="calendar" class="w-5 h-5 text-primary"></i>
+                                            </div>
+                                            <div>
+                                                <div class="h-2 w-16 bg-white/30 rounded mb-1"></div>
+                                                <div class="h-1.5 w-24 bg-white/10 rounded"></div>
+                                            </div>
+                                        </div>
+                                        <div class="glass-card rounded-xl p-3 flex items-center space-x-3">
+                                            <div class="w-10 h-10 rounded-lg bg-secondary/30 flex items-center justify-center">
+                                                <i data-lucide="shield" class="w-5 h-5 text-secondary"></i>
+                                            </div>
+                                            <div>
+                                                <div class="h-2 w-16 bg-white/30 rounded mb-1"></div>
+                                                <div class="h-1.5 w-24 bg-white/10 rounded"></div>
+                                            </div>
+                                        </div>
+                                        <div class="glass-card rounded-xl p-3 flex items-center space-x-3">
+                                            <div class="w-10 h-10 rounded-lg bg-green-500/30 flex items-center justify-center">
+                                                <i data-lucide="car" class="w-5 h-5 text-green-400"></i>
+                                            </div>
+                                            <div>
+                                                <div class="h-2 w-16 bg-white/30 rounded mb-1"></div>
+                                                <div class="h-1.5 w-24 bg-white/10 rounded"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Glow Effect -->
+                        <div class="absolute -inset-4 bg-gradient-to-r from-primary/30 to-secondary/30 rounded-[60px] blur-2xl -z-10"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+            <i data-lucide="chevron-down" class="w-6 h-6 text-gray-500"></i>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="relative py-24 sm:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-primary font-medium" data-i18n="features.badge">Why Choose Us</span>
+                <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl mt-4 mb-6" data-i18n="features.title">
+                    Building Excellence in Every App
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto" data-i18n="features.subtitle">
+                    We combine technical expertise with user-centered design to create mobile experiences that matter.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="glass-card glow-effect rounded-2xl p-8 app-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center mb-6">
+                        <i data-lucide="smartphone" class="w-7 h-7 text-primary"></i>
+                    </div>
+                    <h3 class="font-display font-semibold text-xl mb-3" data-i18n="features.feature1.title">Mobile App Development</h3>
+                    <p class="text-gray-400 leading-relaxed" data-i18n="features.feature1.desc">
+                        High performance Android and iOS applications built with cutting-edge technologies and best practices.
+                    </p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="glass-card glow-effect rounded-2xl p-8 app-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-secondary/20 to-secondary/5 flex items-center justify-center mb-6">
+                        <i data-lucide="users" class="w-7 h-7 text-secondary"></i>
+                    </div>
+                    <h3 class="font-display font-semibold text-xl mb-3" data-i18n="features.feature2.title">User-Focused Design</h3>
+                    <p class="text-gray-400 leading-relaxed" data-i18n="features.feature2.desc">
+                        Simple and intuitive user experience designed with empathy and tested with real users for maximum satisfaction.
+                    </p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="glass-card glow-effect rounded-2xl p-8 app-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-green-500/20 to-green-500/5 flex items-center justify-center mb-6">
+                        <i data-lucide="rocket" class="w-7 h-7 text-green-400"></i>
+                    </div>
+                    <h3 class="font-display font-semibold text-xl mb-3" data-i18n="features.feature3.title">Continuous Innovation</h3>
+                    <p class="text-gray-400 leading-relaxed" data-i18n="features.feature3.desc">
+                        Regular updates and modern technology stack to ensure your apps stay ahead of the curve.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Our Apps Section -->
+    <section id="apps" class="relative py-24 sm:py-32 overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-secondary font-medium" data-i18n="apps.badge">Our Portfolio</span>
+                <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl mt-4 mb-6" data-i18n="apps.title">
+                    Apps We've Built
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto" data-i18n="apps.subtitle">
+                    Discover our collection of practical mobile applications designed to solve real-world problems.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Saydım App -->
+                <div class="glass-card rounded-3xl overflow-hidden app-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="aspect-[4/3] bg-gradient-to-br from-primary/20 to-secondary/20 p-6 flex items-center justify-center relative">
+                        <div class="phone-mockup w-32 p-1.5 transform -rotate-6 hover:rotate-0 transition-transform duration-500">
+                            <div class="phone-screen aspect-[9/19] bg-gradient-to-b from-primary/30 to-secondary/30 flex items-center justify-center">
+                                <i data-lucide="calendar-heart" class="w-12 h-12 text-white"></i>
+                            </div>
+                        </div>
+                        <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-primary/30 rounded-full blur-3xl"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+                                <i data-lucide="calendar-heart" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <h3 class="font-display font-bold text-2xl">Saydım</h3>
+                        </div>
+                        <p class="text-gray-400 mb-6" data-i18n="apps.saydim.desc">
+                            Countdown and special day tracking app. Never miss important dates and celebrate every moment.
+                        </p>
+                        <div class="flex space-x-3">
+                            <a href="https://apps.apple.com/tr/app/sayd%C4%B1m/id6759845082?l=tr" target="_blank" class="flex-1 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl px-4 py-2.5 flex items-center justify-center space-x-2 transition-all">
+                                <i data-lucide="apple" class="w-5 h-5"></i>
+                                <span class="text-sm font-medium">App Store</span>
+                            </a>
+                            <a href="#" class="flex-1 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl px-4 py-2.5 flex items-center justify-center space-x-2 transition-all opacity-50 cursor-not-allowed">
+                                <i data-lucide="play" class="w-5 h-5"></i>
+                                <span class="text-sm font-medium" data-i18n="apps.playstore">Play Store</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Komiserim App -->
+                <div class="glass-card rounded-3xl overflow-hidden app-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="aspect-[4/3] bg-gradient-to-br from-secondary/20 to-primary/20 p-6 flex items-center justify-center relative">
+                        <div class="phone-mockup w-32 p-1.5 transform rotate-6 hover:rotate-0 transition-transform duration-500">
+                            <div class="phone-screen aspect-[9/19] bg-gradient-to-b from-secondary/30 to-primary/30 flex items-center justify-center">
+                                <i data-lucide="shield-check" class="w-12 h-12 text-white"></i>
+                            </div>
+                        </div>
+                        <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-secondary/30 rounded-full blur-3xl"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-secondary to-primary flex items-center justify-center">
+                                <i data-lucide="shield-check" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <h3 class="font-display font-bold text-2xl">Komiserim</h3>
+                        </div>
+                        <p class="text-gray-400 mb-6" data-i18n="apps.komiserim.desc">
+                            Police exam preparation and training platform. Comprehensive study materials and practice tests.
+                        </p>
+                        <div class="flex space-x-3">
+                            <a href="https://apps.apple.com/tr/app/komiserim-akademi-pro/id6759722501?l=tr" target="_blank" class="flex-1 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl px-4 py-2.5 flex items-center justify-center space-x-2 transition-all">
+                                <i data-lucide="apple" class="w-5 h-5"></i>
+                                <span class="text-sm font-medium">App Store</span>
+                            </a>
+                            <a href="https://play.google.com/store/apps/details?id=com.komiserim.akademi&pcampaignid=web_share" target="_blank" class="flex-1 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl px-4 py-2.5 flex items-center justify-center space-x-2 transition-all">
+                                <i data-lucide="play" class="w-5 h-5"></i>
+                                <span class="text-sm font-medium" data-i18n="apps.playstore">Play Store</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Arabam+ App - Coming Soon -->
+                <div class="glass-card rounded-3xl overflow-hidden app-card relative" data-aos="fade-up" data-aos-delay="200">
+                    <!-- Coming Soon Overlay -->
+                    <div class="absolute inset-0 coming-soon-overlay z-10 flex items-center justify-center">
+                        <div class="text-center">
+                            <div class="coming-soon-badge px-6 py-3 rounded-full text-white font-bold text-lg mb-4 inline-block" data-i18n="apps.comingsoon.badge">
+                                Coming Soon
+                            </div>
+                            <p class="text-gray-300 text-sm" data-i18n="apps.comingsoon.desc">Stay tuned for the launch!</p>
+                        </div>
+                    </div>
+                    
+                    <div class="aspect-[4/3] bg-gradient-to-br from-green-500/20 to-primary/20 p-6 flex items-center justify-center relative opacity-50">
+                        <div class="phone-mockup w-32 p-1.5 transform -rotate-3 hover:rotate-0 transition-transform duration-500">
+                            <div class="phone-screen aspect-[9/19] bg-gradient-to-b from-green-500/30 to-primary/30 flex items-center justify-center">
+                                <i data-lucide="car" class="w-12 h-12 text-white"></i>
+                            </div>
+                        </div>
+                        <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-green-500/30 rounded-full blur-3xl"></div>
+                    </div>
+                    <div class="p-6 opacity-50">
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-green-500 to-primary flex items-center justify-center">
+                                <i data-lucide="car" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <h3 class="font-display font-bold text-2xl">Arabam+</h3>
+                        </div>
+                        <p class="text-gray-400 mb-6" data-i18n="apps.arabam.desc">
+                            Vehicle expense, fuel, and maintenance tracking app. Keep your car's health in check.
+                        </p>
+                        <div class="flex space-x-3">
+                            <button disabled class="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 flex items-center justify-center space-x-2 opacity-50 cursor-not-allowed">
+                                <i data-lucide="apple" class="w-5 h-5"></i>
+                                <span class="text-sm font-medium">App Store</span>
+                            </button>
+                            <button disabled class="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 flex items-center justify-center space-x-2 opacity-50 cursor-not-allowed">
+                                <i data-lucide="play" class="w-5 h-5"></i>
+                                <span class="text-sm font-medium" data-i18n="apps.playstore">Play Store</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Technology Stack Section -->
+    <section id="tech" class="relative py-24 sm:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-green-400 font-medium" data-i18n="tech.badge">Built With</span>
+                <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl mt-4 mb-6" data-i18n="tech.title">
+                    Our Technology Stack
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto" data-i18n="tech.subtitle">
+                    We use industry-leading technologies to build robust, scalable, and performant mobile applications.
+                </p>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="tech-badge px-6 py-3 rounded-full flex items-center space-x-3">
+                    <i data-lucide="atom" class="w-5 h-5 text-cyan-400"></i>
+                    <span class="font-medium">React Native</span>
+                </div>
+                <div class="tech-badge px-6 py-3 rounded-full flex items-center space-x-3">
+                    <i data-lucide="zap" class="w-5 h-5 text-yellow-400"></i>
+                    <span class="font-medium">Expo</span>
+                </div>
+                <div class="tech-badge px-6 py-3 rounded-full flex items-center space-x-3">
+                    <i data-lucide="database" class="w-5 h-5 text-emerald-400"></i>
+                    <span class="font-medium">Supabase</span>
+                </div>
+                <div class="tech-badge px-6 py-3 rounded-full flex items-center space-x-3">
+                    <i data-lucide="flame" class="w-5 h-5 text-orange-400"></i>
+                    <span class="font-medium">Firebase</span>
+                </div>
+                <div class="tech-badge px-6 py-3 rounded-full flex items-center space-x-3">
+                    <i data-lucide="dollar-sign" class="w-5 h-5 text-red-400"></i>
+                    <span class="font-medium">AdMob</span>
+                </div>
+            </div>
+            
+            <!-- Tech Illustration -->
+            <div class="mt-16 relative" data-aos="fade-up" data-aos-delay="200">
+                <div class="glass-card rounded-3xl p-8 sm:p-12">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h3 class="font-display font-bold text-2xl mb-4" data-i18n="tech.feature.title">Cross-Platform Excellence</h3>
+                            <p class="text-gray-400 mb-6" data-i18n="tech.feature.desc">
+                                Our apps are built with React Native and Expo, ensuring consistent performance and native-like experience across both iOS and Android platforms.
+                            </p>
+                            <div class="space-y-4">
+                                <div class="flex items-center space-x-3">
+                                    <i data-lucide="check-circle" class="w-5 h-5 text-green-400"></i>
+                                    <span class="text-gray-300" data-i18n="tech.feature.item1">Single codebase for iOS & Android</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <i data-lucide="check-circle" class="w-5 h-5 text-green-400"></i>
+                                    <span class="text-gray-300" data-i18n="tech.feature.item2">Hot reload for faster development</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <i data-lucide="check-circle" class="w-5 h-5 text-green-400"></i>
+                                    <span class="text-gray-300" data-i18n="tech.feature.item3">Native performance & animations</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <div class="aspect-square max-w-xs mx-auto relative">
+                                <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full blur-3xl"></div>
+                                <div class="relative glass-card rounded-2xl p-6 h-full flex items-center justify-center">
+                                    <div class="grid grid-cols-2 gap-4 w-full">
+                                        <div class="aspect-square rounded-xl bg-primary/20 flex items-center justify-center">
+                                            <i data-lucide="apple" class="w-8 h-8 text-white"></i>
+                                        </div>
+                                        <div class="aspect-square rounded-xl bg-secondary/20 flex items-center justify-center">
+                                            <i data-lucide="smartphone" class="w-8 h-8 text-white"></i>
+                                        </div>
+                                        <div class="aspect-square rounded-xl bg-green-500/20 flex items-center justify-center">
+                                            <i data-lucide="code-2" class="w-8 h-8 text-white"></i>
+                                        </div>
+                                        <div class="aspect-square rounded-xl bg-orange-500/20 flex items-center justify-center">
+                                            <i data-lucide="database" class="w-8 h-8 text-white"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="relative py-24 sm:py-32 overflow-hidden">
+        <div class="absolute inset-0 gradient-bg"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <span class="text-primary font-medium" data-i18n="about.badge">About Us</span>
+                    <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl mt-4 mb-6" data-i18n="about.title">
+                        Crafting Digital Experiences with Purpose
+                    </h2>
+                    <p class="text-gray-400 text-lg mb-6" data-i18n="about.desc1">
+                        HanTech is an independent mobile app studio focused on building practical applications that solve real-world problems.
+                    </p>
+                    <p class="text-gray-400 mb-8" data-i18n="about.desc2">
+                        Founded with a passion for technology and user experience, we believe in creating apps that make a difference in people's daily lives. From countdown timers to exam preparation tools, every app we build serves a purpose.
+                    </p>
+                    
+                    <div class="grid grid-cols-3 gap-6">
+                        <div class="text-center">
+                            <div class="font-display font-bold text-3xl text-primary mb-1">3+</div>
+                            <div class="text-sm text-gray-500" data-i18n="about.stats.apps">Apps Published</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="font-display font-bold text-3xl text-secondary mb-1">10K+</div>
+                            <div class="text-sm text-gray-500" data-i18n="about.stats.downloads">Downloads</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="font-display font-bold text-3xl text-green-400 mb-1">100%</div>
+                            <div class="text-sm text-gray-500" data-i18n="about.stats.passion">Passion</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-left" class="relative">
+                    <div class="relative">
+                        <div class="absolute -inset-4 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-3xl blur-2xl"></div>
+                        <div class="relative glass-card rounded-3xl p-8">
+                            <div class="flex items-center space-x-4 mb-6">
+                                <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+                                    <span class="font-display font-bold text-white text-2xl">H</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-display font-bold text-xl">HanTech Studio</h3>
+                                    <p class="text-gray-400" data-i18n="about.card.subtitle">Mobile App Development</p>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between py-3 border-b border-white/5">
+                                    <span class="text-gray-400" data-i18n="about.card.founded">Founded</span>
+                                    <span class="font-medium">2023</span>
+                                </div>
+                                <div class="flex items-center justify-between py-3 border-b border-white/5">
+                                    <span class="text-gray-400" data-i18n="about.card.location">Location</span>
+                                    <span class="font-medium" data-i18n="about.card.locationVal">Remote / Global</span>
+                                </div>
+                                <div class="flex items-center justify-between py-3 border-b border-white/5">
+                                    <span class="text-gray-400" data-i18n="about.card.focus">Focus</span>
+                                    <span class="font-medium" data-i18n="about.card.focusVal">Mobile Apps</span>
+                                </div>
+                                <div class="flex items-center justify-between py-3">
+                                    <span class="text-gray-400" data-i18n="about.card.platform">Platform</span>
+                                    <span class="font-medium">iOS & Android</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="relative py-24 sm:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-primary font-medium" data-i18n="contact.badge">Get in Touch</span>
+                <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl mt-4 mb-6" data-i18n="contact.title">
+                    Let's Work Together
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto" data-i18n="contact.subtitle">
+                    Have a project in mind? We'd love to hear from you. Send us a message and we'll get back to you soon.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div data-aos="fade-right">
+                    <div class="glass-card rounded-3xl p-8 h-full">
+                        <h3 class="font-display font-bold text-2xl mb-6" data-i18n="contact.info.title">Contact Information</h3>
+                        
+                        <div class="space-y-6 mb-8">
+                            <a href="mailto:contact@hantech.studio" class="flex items-center space-x-4 group">
+                                <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                                    <i data-lucide="mail" class="w-5 h-5 text-primary"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-500" data-i18n="contact.info.email">Email</p>
+                                    <p class="font-medium group-hover:text-primary transition-colors">contact@hantech.studio</p>
+                                </div>
+                            </a>
+                            
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center">
+                                    <i data-lucide="map-pin" class="w-5 h-5 text-secondary"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-500" data-i18n="contact.info.location">Location</p>
+                                    <p class="font-medium" data-i18n="contact.info.locationVal">Remote / Worldwide</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <p class="text-gray-500 mb-4" data-i18n="contact.info.follow">Follow us</p>
+                            <div class="flex space-x-3">
+                                <a href="#" class="w-12 h-12 rounded-xl bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors">
+                                    <i data-lucide="twitter" class="w-5 h-5"></i>
+                                </a>
+                                <a href="#" class="w-12 h-12 rounded-xl bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors">
+                                    <i data-lucide="linkedin" class="w-5 h-5"></i>
+                                </a>
+                                <a href="#" class="w-12 h-12 rounded-xl bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors">
+                                    <i data-lucide="github" class="w-5 h-5"></i>
+                                </a>
+                                <a href="#" class="w-12 h-12 rounded-xl bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors">
+                                    <i data-lucide="instagram" class="w-5 h-5"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div data-aos="fade-left">
+                    <form class="glass-card rounded-3xl p-8" id="contact-form">
+                        <div class="space-y-6">
+                            <div>
+                                <label class="block text-sm font-medium mb-2" data-i18n="contact.form.name">Name</label>
+                                <input type="text" class="form-input w-full px-4 py-3 rounded-xl" data-i18n-placeholder="contact.form.namePlaceholder" placeholder="Your name" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2" data-i18n="contact.form.email">Email</label>
+                                <input type="email" class="form-input w-full px-4 py-3 rounded-xl" data-i18n-placeholder="contact.form.emailPlaceholder" placeholder="your@email.com" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2" data-i18n="contact.form.message">Message</label>
+                                <textarea class="form-input w-full px-4 py-3 rounded-xl h-32 resize-none" data-i18n-placeholder="contact.form.messagePlaceholder" placeholder="Tell us about your project..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn-primary w-full py-4 rounded-xl font-semibold flex items-center justify-center space-x-2">
+                                <span data-i18n="contact.form.submit">Send Message</span>
+                                <i data-lucide="send" class="w-5 h-5"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="relative py-12 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="flex items-center space-x-2 mb-4 md:mb-0">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+                        <span class="font-display font-bold text-white text-xl">H</span>
+                    </div>
+                    <span class="font-display font-bold text-xl">HanTech</span>
+                </div>
+                
+                <div class="flex items-center space-x-6 text-sm text-gray-400">
+                    <a href="privacy.html" class="hover:text-white transition-colors" data-i18n="footer.privacy">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors" data-i18n="footer.terms">Terms of Service</a>
+                    <span data-i18n="footer.copyright">&copy; 2026 HanTech. All rights reserved.</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script>
+        // Translations
+        const translations = {
+            en: {
+                nav: {
+                    apps: "Our Apps",
+                    about: "About",
+                    tech: "Technology",
+                    contact: "Contact Us",
+                    language: "Language:"
+                },
+                hero: {
+                    badge: "Available for projects",
+                    title1: "Building ",
+                    title2: "Smart Mobile Apps",
+                    title3: " for Everyday Life",
+                    subtitle: "HanTech develops modern mobile applications that simplify daily tasks and empower users.",
+                    cta1: "View Our Apps",
+                    cta2: "Contact Us"
+                },
+                features: {
+                    badge: "Why Choose Us",
+                    title: "Building Excellence in Every App",
+                    subtitle: "We combine technical expertise with user-centered design to create mobile experiences that matter.",
+                    feature1: {
+                        title: "Mobile App Development",
+                        desc: "High performance Android and iOS applications built with cutting-edge technologies and best practices."
+                    },
+                    feature2: {
+                        title: "User-Focused Design",
+                        desc: "Simple and intuitive user experience designed with empathy and tested with real users for maximum satisfaction."
+                    },
+                    feature3: {
+                        title: "Continuous Innovation",
+                        desc: "Regular updates and modern technology stack to ensure your apps stay ahead of the curve."
+                    }
+                },
+                apps: {
+                    badge: "Our Portfolio",
+                    title: "Apps We've Built",
+                    subtitle: "Discover our collection of practical mobile applications designed to solve real-world problems.",
+                    playstore: "Play Store",
+                    saydim: {
+                        desc: "Countdown and special day tracking app. Never miss important dates and celebrate every moment."
+                    },
+                    komiserim: {
+                        desc: "Police exam preparation and training platform. Comprehensive study materials and practice tests."
+                    },
+                    arabam: {
+                        desc: "Vehicle expense, fuel, and maintenance tracking app. Keep your car's health in check."
+                    },
+                    comingsoon: {
+                        badge: "Coming Soon",
+                        desc: "Stay tuned for the launch!"
+                    }
+                },
+                tech: {
+                    badge: "Built With",
+                    title: "Our Technology Stack",
+                    subtitle: "We use industry-leading technologies to build robust, scalable, and performant mobile applications.",
+                    feature: {
+                        title: "Cross-Platform Excellence",
+                        desc: "Our apps are built with React Native and Expo, ensuring consistent performance and native-like experience across both iOS and Android platforms.",
+                        item1: "Single codebase for iOS & Android",
+                        item2: "Hot reload for faster development",
+                        item3: "Native performance & animations"
+                    }
+                },
+                about: {
+                    badge: "About Us",
+                    title: "Crafting Digital Experiences with Purpose",
+                    desc1: "HanTech is an independent mobile app studio focused on building practical applications that solve real-world problems.",
+                    desc2: "Founded with a passion for technology and user experience, we believe in creating apps that make a difference in people's daily lives. From countdown timers to exam preparation tools, every app we build serves a purpose.",
+                    stats: {
+                        apps: "Apps Published",
+                        downloads: "Downloads",
+                        passion: "Passion"
+                    },
+                    card: {
+                        subtitle: "Mobile App Development",
+                        founded: "Founded",
+                        location: "Location",
+                        locationVal: "Remote / Global",
+                        focus: "Focus",
+                        focusVal: "Mobile Apps",
+                        platform: "Platform"
+                    }
+                },
+                contact: {
+                    badge: "Get in Touch",
+                    title: "Let's Work Together",
+                    subtitle: "Have a project in mind? We'd love to hear from you. Send us a message and we'll get back to you soon.",
+                    info: {
+                        title: "Contact Information",
+                        email: "Email",
+                        location: "Location",
+                        locationVal: "Remote / Worldwide",
+                        follow: "Follow us"
+                    },
+                    form: {
+                        name: "Name",
+                        namePlaceholder: "Your name",
+                        email: "Email",
+                        emailPlaceholder: "your@email.com",
+                        message: "Message",
+                        messagePlaceholder: "Tell us about your project...",
+                        submit: "Send Message"
+                    }
+                },
+                footer: {
+                    privacy: "Privacy Policy",
+                    terms: "Terms of Service",
+                    copyright: "© 2026 HanTech. All rights reserved."
+                }
+            },
+            tr: {
+                nav: {
+                    apps: "Uygulamalarımız",
+                    about: "Hakkımızda",
+                    tech: "Teknoloji",
+                    contact: "İletişim",
+                    language: "Dil:"
+                },
+                hero: {
+                    badge: "Projeler için müsait",
+                    title1: "Günlük Hayat İçin ",
+                    title2: "Akıllı Mobil Uygulamalar",
+                    title3: " Geliştiriyoruz",
+                    subtitle: "HanTech, günlük görevleri kolaylaştıran ve kullanıcıları güçlendiren modern mobil uygulamalar geliştirir.",
+                    cta1: "Uygulamalarımızı Gör",
+                    cta2: "Bize Ulaşın"
+                },
+                features: {
+                    badge: "Neden Bizi Seçmelisiniz",
+                    title: "Her Uygulamada Mükemmellik",
+                    subtitle: "Teknik uzmanlığı kullanıcı odaklı tasarım ile birleştirerek anlamlı mobil deneyimler yaratıyoruz.",
+                    feature1: {
+                        title: "Mobil Uygulama Geliştirme",
+                        desc: "En son teknolojiler ve en iyi uygulamalarla geliştirilmiş yüksek performanslı Android ve iOS uygulamaları."
+                    },
+                    feature2: {
+                        title: "Kullanıcı Odaklı Tasarım",
+                        title: "Kullanıcı Odaklı Tasarım",
+                        desc: "Empati ile tasarlanmış ve maksimum memnuniyet için gerçek kullanıcılarla test edilmiş basit ve sezgisel kullanıcı deneyimi."
+                    },
+                    feature3: {
+                        title: "Sürekli İnovasyon",
+                        desc: "Uygulamalarınızın ön planda kalmasını sağlamak için düzenli güncellemeler ve modern teknoloji altyapısı."
+                    }
+                },
+                apps: {
+                    badge: "Portföyümüz",
+                    title: "Geliştirdiğimiz Uygulamalar",
+                    subtitle: "Gerçek dünya problemlerini çözmek için tasarlanmış pratik mobil uygulamalar koleksiyonumuzu keşfedin.",
+                    playstore: "Play Store",
+                    saydim: {
+                        desc: "Geri sayım ve özel gün takip uygulaması. Önemli tarihleri asla kaçırmayın ve her anı kutlayın."
+                    },
+                    komiserim: {
+                        desc: "Polis sınavı hazırlık ve eğitim platformu. Kapsamlı çalışma materyalleri ve pratik testler."
+                    },
+                    arabam: {
+                        desc: "Araç gider, yakıt ve bakım takip uygulaması. Arabanızın sağlığını kontrol altında tutun."
+                    },
+                    comingsoon: {
+                        badge: "Çok Yakında",
+                        desc: "Yayın tarihi için bizi takip edin!"
+                    }
+                },
+                tech: {
+                    badge: "Kullandığımız Teknolojiler",
+                    title: "Teknoloji Altyapımız",
+                    subtitle: "Sağlam, ölçeklenebilir ve yüksek performanslı mobil uygulamalar oluşturmak için sektör lideri teknolojiler kullanıyoruz.",
+                    feature: {
+                        title: "Çapraz Platform Mükemmelliği",
+                        desc: "Uygulamalarımız React Native ve Expo ile geliştirilmiştir, hem iOS hem de Android platformlarında tutarlı performans ve yerel benzeri deneyim sağlar.",
+                        item1: "iOS ve Android için tek kod tabanı",
+                        item2: "Daha hızlı geliştirme için hot reload",
+                        item3: "Yerel performans ve animasyonlar"
+                    }
+                },
+                about: {
+                    badge: "Hakkımızda",
+                    title: "Amaç Dijital Deneyimler Yaratmak",
+                    desc1: "HanTech, gerçek dünya problemlerini çözen pratik uygulamalar geliştirmeye odaklanan bağımsız bir mobil uygulama stüdyosudur.",
+                    desc2: "Teknoloji ve kullanıcı deneyimi tutkusuyla kurulan stüdyomuz, insanların günlük yaşamlarında fark yaratan uygulamalar oluşturmaya inanıyor. Geri sayım zamanlayıcılarından sınav hazırlık araçlarına kadar, geliştirdiğimiz her uygulamanın bir amacı var.",
+                    stats: {
+                        apps: "Yayınlanan Uygulama",
+                        downloads: "İndirme",
+                        passion: "Tutku"
+                    },
+                    card: {
+                        subtitle: "Mobil Uygulama Geliştirme",
+                        founded: "Kuruluş",
+                        location: "Konum",
+                        locationVal: "Uzaktan / Global",
+                        focus: "Odak",
+                        focusVal: "Mobil Uygulamalar",
+                        platform: "Platform"
+                    }
+                },
+                contact: {
+                    badge: "İletişime Geçin",
+                    title: "Birlikte Çalışalım",
+                    subtitle: "Aklınızda bir proje mi var? Sizden haber almak isteriz. Bize mesaj gönderin, en kısa sürede size dönüş yapalım.",
+                    info: {
+                        title: "İletişim Bilgileri",
+                        email: "E-posta",
+                        location: "Konum",
+                        locationVal: "Uzaktan / Dünya Geneli",
+                        follow: "Bizi Takip Edin"
+                    },
+                    form: {
+                        name: "İsim",
+                        namePlaceholder: "Adınız",
+                        email: "E-posta",
+                        emailPlaceholder: "sizin@eposta.com",
+                        message: "Mesaj",
+                        messagePlaceholder: "Projeniz hakkında bize bilgi verin...",
+                        submit: "Mesaj Gönder"
+                    }
+                },
+                footer: {
+                    privacy: "Gizlilik Politikası",
+                    terms: "Kullanım Koşulları",
+                    copyright: "© 2026 HanTech. Tüm hakları saklıdır."
+                }
+            }
+        };
+
+        // Language Manager
+        class LanguageManager {
+            constructor() {
+                this.currentLang = localStorage.getItem('hantech-lang') || 'en';
+                this.init();
+            }
+
+            init() {
+                this.updateUI();
+                this.attachEventListeners();
+                this.setDocumentLang();
+            }
+
+            setLanguage(lang) {
+                this.currentLang = lang;
+                localStorage.setItem('hantech-lang', lang);
+                this.updateUI();
+                this.setDocumentLang();
+                this.updateFlag();
+            }
+
+            setDocumentLang() {
+                document.documentElement.lang = this.currentLang;
+            }
+
+            updateFlag() {
+                const flag = this.currentLang === 'en' ? '🇬🇧' : '🇹🇷';
+                const code = this.currentLang === 'en' ? 'EN' : 'TR';
+                document.getElementById('current-lang-flag').textContent = flag;
+                document.getElementById('current-lang-code').textContent = code;
+            }
+
+            updateUI() {
+                const texts = translations[this.currentLang];
+                
+                // Update all elements with data-i18n attribute
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    const value = this.getNestedValue(texts, key);
+                    if (value) {
+                        el.textContent = value;
+                    }
+                });
+
+                // Update placeholders
+                document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                    const key = el.getAttribute('data-i18n-placeholder');
+                    const value = this.getNestedValue(texts, key);
+                    if (value) {
+                        el.placeholder = value;
+                    }
+                });
+
+                // Update active state in dropdown
+                document.querySelectorAll('.lang-option').forEach(opt => {
+                    opt.classList.toggle('active', opt.dataset.lang === this.currentLang);
+                });
+
+                this.updateFlag();
+            }
+
+            getNestedValue(obj, path) {
+                return path.split('.').reduce((current, key) => {
+                    return current && current[key] !== undefined ? current[key] : null;
+                }, obj);
+            }
+
+            attachEventListeners() {
+                // Desktop dropdown
+                document.querySelectorAll('.lang-option').forEach(option => {
+                    option.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        this.setLanguage(option.dataset.lang);
+                    });
+                });
+
+                // Mobile buttons
+                document.querySelectorAll('.lang-switch-mobile').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        this.setLanguage(btn.dataset.lang);
+                    });
+                });
+
+                // Toggle dropdown
+                const langBtn = document.querySelector('.lang-selector button');
+                const dropdown = document.getElementById('lang-dropdown');
+                
+                langBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    dropdown.classList.toggle('active');
+                });
+
+                // Close dropdown when clicking outside
+                document.addEventListener('click', () => {
+                    dropdown.classList.remove('active');
+                });
+            }
+        }
+
+        // Initialize Lucide Icons
+        lucide.createIcons();
+        
+        // Initialize AOS Animation
+        AOS.init({
+            once: true,
+            offset: 100,
+            duration: 800,
+            easing: 'ease-out-cubic'
+        });
+        
+        // Initialize Language Manager
+        const langManager = new LanguageManager();
+        
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking a link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Contact Form Handler
+        const contactForm = document.getElementById('contact-form');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const btn = contactForm.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            const successText = langManager.currentLang === 'tr' ? 'Mesaj Gönderildi!' : 'Message Sent!';
+            btn.innerHTML = `<span>${successText}</span>`;
+            btn.classList.add('bg-green-500');
+            
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.classList.remove('bg-green-500');
+                contactForm.reset();
+                lucide.createIcons();
+            }, 3000);
+        });
+        
+        // Add scroll effect to navbar
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg', 'shadow-black/20');
+            } else {
+                nav.classList.remove('shadow-lg', 'shadow-black/20');
+            }
+        });
+    </script>
+</body>
+</html>

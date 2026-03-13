@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="meta.title">Privacy Policy - HanTech</title>
+    <meta name="description" content="HanTech Privacy Policy - How we handle your data">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#2563EB',
+                        secondary: '#7C3AED',
+                        dark: {
+                            900: '#020617',
+                            800: '#0F172A',
+                            700: '#1E293B',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #020617;
+            overflow-x: hidden;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #2563EB 0%, #7C3AED 50%, #2563EB 100%);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glass-card {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-blur {
+            backdrop-filter: blur(20px);
+            background: rgba(2, 6, 23, 0.8);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px -10px rgba(37, 99, 235, 0.5);
+        }
+        
+        .btn-outline {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline:hover {
+            border-color: #2563EB;
+            background: rgba(37, 99, 235, 0.1);
+        }
+        
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #020617;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #1E293B;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2563EB;
+        }
+
+        .gradient-bg {
+            background: radial-gradient(ellipse at 20% 20%, rgba(37, 99, 235, 0.15) 0%, transparent 50%),
+                        radial-gradient(ellipse at 80% 80%, rgba(124, 58, 237, 0.15) 0%, transparent 50%);
+        }
+
+        /* Language Selector Styles */
+        .lang-selector {
+            position: relative;
+        }
+
+        .lang-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 0.5rem;
+            background: rgba(30, 41, 59, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 0.5rem;
+            min-width: 120px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .lang-selector:hover .lang-dropdown,
+        .lang-dropdown.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .lang-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0.75rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .lang-option:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .lang-option.active {
+            background: rgba(37, 99, 235, 0.2);
+        }
+
+        .lang-flag {
+            font-size: 1.2rem;
+        }
+
+        /* Privacy Policy Content Styles */
+        .privacy-content h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .privacy-content h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #94a3b8;
+        }
+
+        .privacy-content p {
+            color: #94a3b8;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .privacy-content ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .privacy-content li {
+            color: #94a3b8;
+            line-height: 1.8;
+            margin-bottom: 0.5rem;
+        }
+
+        .privacy-content a {
+            color: #2563EB;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .privacy-content a:hover {
+            color: #7C3AED;
+            text-decoration: underline;
+        }
+
+        .privacy-content strong {
+            color: #fff;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="text-white antialiased min-h-screen">
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 nav-blur border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 md:h-20">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+                        <span class="font-display font-bold text-white text-xl">H</span>
+                    </div>
+                    <span class="font-display font-bold text-xl">HanTech</span>
+                </a>
+                
+                <div class="flex items-center space-x-4">
+                    <a href="index.html" class="hidden sm:flex items-center space-x-2 text-gray-400 hover:text-white transition-colors">
+                        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                        <span data-i18n="nav.back">Back to Home</span>
+                    </a>
+                    
+                    <!-- Language Selector -->
+                    <div class="lang-selector">
+                        <button class="flex items-center space-x-2 px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 transition-colors">
+                            <span id="current-lang-flag">🇬🇧</span>
+                            <span id="current-lang-code" class="text-sm font-medium">EN</span>
+                            <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                        </button>
+                        <div class="lang-dropdown" id="lang-dropdown">
+                            <div class="lang-option active" data-lang="en">
+                                <span class="lang-flag">🇬🇧</span>
+                                <span class="text-sm">English</span>
+                            </div>
+                            <div class="lang-option" data-lang="tr">
+                                <span class="lang-flag">🇹🇷</span>
+                                <span class="text-sm">Türkçe</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Header Section -->
+    <section class="relative pt-32 pb-12 overflow-hidden">
+        <div class="absolute inset-0 gradient-bg"></div>
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-[120px]"></div>
+        
+        <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass-card mb-6">
+                <i data-lucide="shield-check" class="w-4 h-4 text-primary"></i>
+                <span class="text-sm text-gray-300" data-i18n="header.badge">Legal</span>
+            </div>
+            
+            <h1 class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl mb-4">
+                <span data-i18n="header.title1">Privacy </span><span class="gradient-text" data-i18n="header.title2">Policy</span>
+            </h1>
+            
+            <p class="text-gray-400 text-lg" data-i18n="header.subtitle">
+                Last updated: January 2026
+            </p>
+        </div>
+    </section>
+    
+    <!-- Privacy Policy Content -->
+    <section class="relative py-12 pb-24">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card rounded-3xl p-8 sm:p-12">
+                <div class="privacy-content" id="privacy-content">
+                    <!-- English Content -->
+                    <div class="content-en">
+                        <h2>Introduction</h2>
+                        <p>Welcome to HanTech. We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you about how we look after your personal data when you use our mobile applications and tell you about your privacy rights.</p>
+                        
+                        <h2>Information We Collect</h2>
+                        <p>When you use our mobile applications, we may collect the following types of information:</p>
+                        <ul>
+                            <li><strong>Personal Information:</strong> Name, email address, and other information you provide when creating an account or contacting us.</li>
+                            <li><strong>Usage Data:</strong> Information about how you use our apps, including features you use, time spent, and interactions.</li>
+                            <li><strong>Device Information:</strong> Device type, operating system, unique device identifiers, and mobile network information.</li>
+                            <li><strong>Location Data:</strong> With your permission, we may collect and process information about your location.</li>
+                        </ul>
+
+                        <h2>How We Use Your Information</h2>
+                        <p>We use the information we collect for the following purposes:</p>
+                        <ul>
+                            <li>To provide and maintain our services</li>
+                            <li>To notify you about changes to our services</li>
+                            <li>To provide customer support</li>
+                            <li>To gather analysis or valuable information to improve our services</li>
+                            <li>To monitor the usage of our services</li>
+                            <li>To detect, prevent and address technical issues</li>
+                        </ul>
+
+                        <h2>Data Storage and Security</h2>
+                        <p>We use third-party services such as <strong>Supabase</strong> and <strong>Firebase</strong> to store and process your data. These services provide industry-standard security measures to protect your information.</p>
+                        <p>We implement appropriate technical and organizational measures to protect your personal data against unauthorized access, alteration, disclosure, or destruction.</p>
+
+                        <h2>Advertising</h2>
+                        <p>Our applications may display advertisements served by <strong>Google AdMob</strong>. AdMob may use cookies and similar technologies to collect information about your visits to show you relevant ads. For more information about how Google uses your data, please visit <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a>.</p>
+
+                        <h2>Your Data Protection Rights</h2>
+                        <p>Depending on your location, you may have the following rights:</p>
+                        <ul>
+                            <li><strong>Right to Access:</strong> You have the right to request copies of your personal data.</li>
+                            <li><strong>Right to Rectification:</strong> You have the right to request that we correct any information you believe is inaccurate.</li>
+                            <li><strong>Right to Erasure:</strong> You have the right to request that we erase your personal data.</li>
+                            <li><strong>Right to Restrict Processing:</strong> You have the right to request that we restrict the processing of your personal data.</li>
+                            <li><strong>Right to Data Portability:</strong> You have the right to request that we transfer your data to another organization or directly to you.</li>
+                        </ul>
+
+                        <h2>Children's Privacy</h2>
+                        <p>Our services are not intended for use by children under the age of 13. We do not knowingly collect personally identifiable information from children under 13. If you are a parent or guardian and you are aware that your child has provided us with personal data, please contact us.</p>
+
+                        <h2>Changes to This Privacy Policy</h2>
+                        <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date.</p>
+                        <p>You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
+
+                        <h2>Contact Us</h2>
+                        <p>If you have any questions about this Privacy Policy, please contact us:</p>
+                        <ul>
+                            <li>By email: <a href="mailto:privacy@hantech.studio">privacy@hantech.studio</a></li>
+                            <li>By visiting our website: <a href="index.html">hantech.studio</a></li>
+                        </ul>
+
+                        <h2>Specific App Information</h2>
+                        
+                        <h3>Saydım App</h3>
+                        <p>Saydım may store your countdown events and special dates locally on your device. If you enable cloud sync, this data is stored securely in our database.</p>
+
+                        <h3>Komiserim App</h3>
+                        <p>Komiserim stores your progress, quiz results, and study materials. This data is associated with your account and used to track your learning progress.</p>
+
+                        <h3>Arabam+ App</h3>
+                        <p>Arabam+ stores vehicle information, expense records, and maintenance schedules. This data remains on your device unless you explicitly enable cloud backup.</p>
+                    </div>
+
+                    <!-- Turkish Content -->
+                    <div class="content-tr hidden">
+                        <h2>Giriş</h2>
+                        <p>HanTech'e hoş geldiniz. Gizliliğinize saygı duyuyor ve kişisel verilerinizi korumaya kararlıyız. Bu gizlilik politikası, mobil uygulamalarımızı kullanırken kişisel verilerinizi nasıl koruduğumuz ve gizlilik haklarınız hakkında sizi bilgilendirecektir.</p>
+                        
+                        <h2>Topladığımız Bilgiler</h2>
+                        <p>Mobil uygulamalarımızı kullandığınızda aşağıdaki türde bilgileri toplayabiliriz:</p>
+                        <ul>
+                            <li><strong>Kişisel Bilgiler:</strong> Hesap oluştururken veya bizimle iletişime geçerken sağladığınız isim, e-posta adresi ve diğer bilgiler.</li>
+                            <li><strong>Kullanım Verileri:</strong> Uygulamalarımızı nasıl kullandığınıza dair bilgiler, kullandığınız özellikler, geçirilen süre ve etkileşimler.</li>
+                            <li><strong>Cihaz Bilgileri:</strong> Cihaz tipi, işletim sistemi, benzersiz cihaz tanımlayıcıları ve mobil ağ bilgileri.</li>
+                            <li><strong>Konum Verileri:</strong> İzninizle konumunuz hakkında bilgi toplayıp işleyebiliriz.</li>
+                        </ul>
+
+                        <h2>Bilgilerinizi Nasıl Kullanıyoruz</h2>
+                        <p>Topladığımız bilgileri aşağıdaki amaçlar için kullanıyoruz:</p>
+                        <ul>
+                            <li>Hizmetlerimizi sağlamak ve sürdürmek</li>
+                            <li>Hizmetlerimizdeki değişiklikler hakkında sizi bilgilendirmek</li>
+                            <li>Müşteri desteği sağlamak</li>
+                            <li>Hizmetlerimizi geliştirmek için analiz veya değerli bilgiler toplamak</li>
+                            <li>Hizmetlerimizin kullanımını izlemek</li>
+                            <li>Teknik sorunları tespit etmek, önlemek ve çözmek</li>
+                        </ul>
+
+                        <h2>Veri Depolama ve Güvenlik</h2>
+                        <p>Verilerinizi depolamak ve işlemek için <strong>Supabase</strong> ve <strong>Firebase</strong> gibi üçüncü taraf hizmetler kullanıyoruz. Bu hizmetler bilgilerinizi korumak için sektör standardı güvenlik önlemleri sağlar.</p>
+                        <p>Bilgilerinizi yetkisiz erişime, değiştirilmeye, ifşaya veya yok edilmeye karşı korumak için uygun teknik ve organizasyonel önlemler uyguluyoruz.</p>
+
+                        <h2>Reklamcılık</h2>
+                        <p>Uygulamalarımız <strong>Google AdMob</strong> tarafından sunulan reklamlar gösterebilir. AdMob, size ilgili reklamları göstermek için ziyaretleriniz hakkında bilgi toplamak için çerezler ve benzer teknolojiler kullanabilir. Google'ın verilerinizi nasıl kullandığı hakkında daha fazla bilgi için lütfen <a href="https://policies.google.com/privacy" target="_blank">Google'ın Gizlilik Politikası</a>nı ziyaret edin.</p>
+
+                        <h2>Veri Koruma Haklarınız</h2>
+                        <p>Bulunduğunuz konuma bağlı olarak aşağıdaki haklara sahip olabilirsiniz:</p>
+                        <ul>
+                            <li><strong>Erişim Hakkı:</strong> Kişisel verilerinizin kopyalarını talep etme hakkına sahipsiniz.</li>
+                            <li><strong>Düzeltme Hakkı:</strong> Yanlış olduğuna inandığınız herhangi bir bilgiyi düzeltmemizi talep etme hakkına sahipsiniz.</li>
+                            <li><strong>Silme Hakkı:</strong> Kişisel verilerinizin silinmesini talep etme hakkına sahipsiniz.</li>
+                            <li><strong>İşlemeyi Sınırlandırma Hakkı:</strong> Kişisel verilerinizin işlenmesini sınırlandırmamızı talep etme hakkına sahipsiniz.</li>
+                            <li><strong>Veri Taşınabilirliği Hakkı:</strong> Verilerinizi başka bir kuruluşa veya doğrudan size aktarmamızı talep etme hakkına sahipsiniz.</li>
+                        </ul>
+
+                        <h2>Çocukların Gizliliği</h2>
+                        <p>Hizmetlerimiz 13 yaş altı çocukların kullanımı için tasarlanmamıştır. 13 yaş altı çocuklardan bilerek kişisel bilgi toplamıyoruz. Bir ebeveyn veya veli iseniz ve çocuğunuzun bize kişisel veri sağladığının farkındaysanız, lütfen bizimle iletişime geçin.</p>
+
+                        <h2>Bu Gizlilik Politikasındaki Değişiklikler</h2>
+                        <p>Gizlilik Politikamızı zaman zaman güncelleyebiliriz. Herhangi bir değişiklik hakkında sizi bilgilendirmek için bu sayfada yeni Gizlilik Politikasını yayınlayacak ve "Son güncelleme" tarihini güncelleyeceğiz.</p>
+                        <p>Herhangi bir değişiklik için bu Gizlilik Politikasını periyodik olarak gözden geçirmeniz önerilir. Bu Gizlilik Politikasındaki değişiklikler bu sayfada yayınlandığında yürürlüğe girer.</p>
+
+                        <h2>Bize Ulaşın</h2>
+                        <p>Bu Gizlilik Politikası hakkında herhangi bir sorunuz varsa, lütfen bizimle iletişime geçin:</p>
+                        <ul>
+                            <li>E-posta ile: <a href="mailto:privacy@hantech.studio">privacy@hantech.studio</a></li>
+                            <li>Web sitemizi ziyaret ederek: <a href="index.html">hantech.studio</a></li>
+                        </ul>
+
+                        <h2>Uygulama Bazlı Bilgiler</h2>
+                        
+                        <h3>Saydım Uygulaması</h3>
+                        <p>Saydım, geri sayım etkinliklerinizi ve özel tarihlerinizi cihazınızda yerel olarak saklayabilir. Bulut senkronizasyonunu etkinleştirirseniz, bu veriler veritabanımızda güvenli bir şekilde saklanır.</p>
+
+                        <h3>Komiserim Uygulaması</h3>
+                        <p>Komiserim, ilerlemenizi, quiz sonuçlarınızı ve çalışma materyallerinizi saklar. Bu veriler hesabınızla ilişkilendirilir ve öğrenme ilerlemenizi takip etmek için kullanılır.</p>
+
+                        <h3>Arabam+ Uygulaması</h3>
+                        <p>Arabam+, araç bilgilerini, gider kayıtlarını ve bakım takvimlerini saklar. Bu veriler, açıkça bulut yedeklemesini etkinleştirmediğiniz sürece cihazınızda kalır.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="relative py-12 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <a href="index.html" class="flex items-center space-x-2 mb-4 md:mb-0">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+                        <span class="font-display font-bold text-white text-xl">H</span>
+                    </div>
+                    <span class="font-display font-bold text-xl">HanTech</span>
+                </a>
+                
+                <div class="flex items-center space-x-6 text-sm text-gray-400">
+                    <a href="privacy.html" class="text-white font-medium" data-i18n="footer.privacy">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors" data-i18n="footer.terms">Terms of Service</a>
+                    <span data-i18n="footer.copyright">&copy; 2026 HanTech. All rights reserved.</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script>
+        // Translations
+        const translations = {
+            en: {
+                meta: {
+                    title: "Privacy Policy - HanTech"
+                },
+                nav: {
+                    back: "Back to Home"
+                },
+                header: {
+                    badge: "Legal",
+                    title1: "Privacy ",
+                    title2: "Policy",
+                    subtitle: "Last updated: January 2026"
+                },
+                footer: {
+                    privacy: "Privacy Policy",
+                    terms: "Terms of Service",
+                    copyright: "© 2026 HanTech. All rights reserved."
+                }
+            },
+            tr: {
+                meta: {
+                    title: "Gizlilik Politikası - HanTech"
+                },
+                nav: {
+                    back: "Ana Sayfaya Dön"
+                },
+                header: {
+                    badge: "Yasal",
+                    title1: "Gizlilik ",
+                    title2: "Politikası",
+                    subtitle: "Son güncelleme: Ocak 2026"
+                },
+                footer: {
+                    privacy: "Gizlilik Politikası",
+                    terms: "Kullanım Koşulları",
+                    copyright: "© 2026 HanTech. Tüm hakları saklıdır."
+                }
+            }
+        };
+
+        // Language Manager
+        class LanguageManager {
+            constructor() {
+                this.currentLang = localStorage.getItem('hantech-lang') || 'en';
+                this.init();
+            }
+
+            init() {
+                this.updateUI();
+                this.attachEventListeners();
+                this.setDocumentLang();
+            }
+
+            setLanguage(lang) {
+                this.currentLang = lang;
+                localStorage.setItem('hantech-lang', lang);
+                this.updateUI();
+                this.setDocumentLang();
+                this.updateFlag();
+            }
+
+            setDocumentLang() {
+                document.documentElement.lang = this.currentLang;
+            }
+
+            updateFlag() {
+                const flag = this.currentLang === 'en' ? '🇬🇧' : '🇹🇷';
+                const code = this.currentLang === 'en' ? 'EN' : 'TR';
+                document.getElementById('current-lang-flag').textContent = flag;
+                document.getElementById('current-lang-code').textContent = code;
+            }
+
+            updateUI() {
+                const texts = translations[this.currentLang];
+                
+                // Update all elements with data-i18n attribute
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    const value = this.getNestedValue(texts, key);
+                    if (value) {
+                        el.textContent = value;
+                    }
+                });
+
+                // Update document title
+                const titleValue = this.getNestedValue(texts, 'meta.title');
+                if (titleValue) {
+                    document.title = titleValue;
+                }
+
+                // Show/hide content
+                document.querySelector('.content-en').classList.toggle('hidden', this.currentLang !== 'en');
+                document.querySelector('.content-tr').classList.toggle('hidden', this.currentLang !== 'tr');
+
+                // Update active state in dropdown
+                document.querySelectorAll('.lang-option').forEach(opt => {
+                    opt.classList.toggle('active', opt.dataset.lang === this.currentLang);
+                });
+
+                this.updateFlag();
+            }
+
+            getNestedValue(obj, path) {
+                return path.split('.').reduce((current, key) => {
+                    return current && current[key] !== undefined ? current[key] : null;
+                }, obj);
+            }
+
+            attachEventListeners() {
+                // Desktop dropdown
+                document.querySelectorAll('.lang-option').forEach(option => {
+                    option.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        this.setLanguage(option.dataset.lang);
+                    });
+                });
+
+                // Toggle dropdown
+                const langBtn = document.querySelector('.lang-selector button');
+                const dropdown = document.getElementById('lang-dropdown');
+                
+                langBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    dropdown.classList.toggle('active');
+                });
+
+                // Close dropdown when clicking outside
+                document.addEventListener('click', () => {
+                    dropdown.classList.remove('active');
+                });
+            }
+        }
+
+        // Initialize Lucide Icons
+        lucide.createIcons();
+        
+        // Initialize Language Manager
+        const langManager = new LanguageManager();
+        
+        // Add scroll effect to navbar
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg', 'shadow-black/20');
+            } else {
+                nav.classList.remove('shadow-lg', 'shadow-black/20');
+            }
+        });
+    </script>
+</body>
+</html>
