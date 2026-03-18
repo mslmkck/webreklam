@@ -216,6 +216,29 @@
             animation: float 6s ease-in-out infinite;
         }
 
+        .btn-store {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.6rem 1rem;
+            border-radius: 0.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .btn-store-active {
+            background: #000;
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-store-active:hover {
+            border-color: #2563EB;
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px -10px rgba(37, 99, 235, 0.3);
+        }
+
         .coming-soon-overlay {
             background: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(4px);
@@ -545,15 +568,21 @@
                         <p class="text-gray-400 mb-6" data-i18n="apps.saydim.desc">
                             Countdown and special day tracking app. Never miss important dates and celebrate every moment.
                         </p>
-                        <div class="flex space-x-3">
-                            <a href="https://apps.apple.com/tr/app/sayd%C4%B1m/id6759845082?l=tr" target="_blank" class="flex-1 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl px-4 py-2.5 flex items-center justify-center space-x-2 transition-all">
-                                <i data-lucide="apple" class="w-5 h-5"></i>
-                                <span class="text-sm font-medium">App Store</span>
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <a href="https://apps.apple.com/tr/app/sayd%C4%B1m/id6759845082?l=tr" target="_blank" class="btn-store btn-store-active">
+                                <i data-lucide="apple" class="w-6 h-6 text-white"></i>
+                                <div class="text-left">
+                                    <div class="text-[10px] uppercase leading-none text-gray-400" data-i18n="apps.downloadOn">Download on the</div>
+                                    <div class="text-sm font-bold leading-tight">App Store</div>
+                                </div>
                             </a>
-                            <a href="#" class="flex-1 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl px-4 py-2.5 flex items-center justify-center space-x-2 transition-all opacity-50 cursor-not-allowed">
-                                <i data-lucide="play" class="w-5 h-5"></i>
-                                <span class="text-sm font-medium" data-i18n="apps.playstore">Play Store</span>
-                            </a>
+                            <div class="btn-store opacity-40 cursor-not-allowed grayscale">
+                                <i data-lucide="play" class="w-6 h-6 text-white"></i>
+                                <div class="text-left">
+                                    <div class="text-[10px] uppercase leading-none text-gray-500" data-i18n="apps.getItOn">Get it on</div>
+                                    <div class="text-sm font-bold leading-tight text-gray-400" data-i18n="apps.playstore">Play Store</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -578,14 +607,20 @@
                         <p class="text-gray-400 mb-6" data-i18n="apps.komiserim.desc">
                             Police exam preparation and training platform. Comprehensive study materials and practice tests.
                         </p>
-                        <div class="flex space-x-3">
-                            <a href="https://apps.apple.com/tr/app/komiserim-akademi-pro/id6759722501?l=tr" target="_blank" class="flex-1 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl px-4 py-2.5 flex items-center justify-center space-x-2 transition-all">
-                                <i data-lucide="apple" class="w-5 h-5"></i>
-                                <span class="text-sm font-medium">App Store</span>
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <a href="https://apps.apple.com/tr/app/komiserim-akademi-pro/id6759722501?l=tr" target="_blank" class="btn-store btn-store-active">
+                                <i data-lucide="apple" class="w-6 h-6 text-white"></i>
+                                <div class="text-left">
+                                    <div class="text-[10px] uppercase leading-none text-gray-400" data-i18n="apps.downloadOn">Download on the</div>
+                                    <div class="text-sm font-bold leading-tight">App Store</div>
+                                </div>
                             </a>
-                            <a href="https://play.google.com/store/apps/details?id=com.komiserim.akademi&pcampaignid=web_share" target="_blank" class="flex-1 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl px-4 py-2.5 flex items-center justify-center space-x-2 transition-all">
-                                <i data-lucide="play" class="w-5 h-5"></i>
-                                <span class="text-sm font-medium" data-i18n="apps.playstore">Play Store</span>
+                            <a href="https://play.google.com/store/apps/details?id=com.komiserim.akademi&pcampaignid=web_share" target="_blank" class="btn-store btn-store-active">
+                                <i data-lucide="play" class="w-6 h-6 text-white"></i>
+                                <div class="text-left">
+                                    <div class="text-[10px] uppercase leading-none text-gray-400" data-i18n="apps.getItOn">Get it on</div>
+                                    <div class="text-sm font-bold leading-tight" data-i18n="apps.playstore">Play Store</div>
+                                </div>
                             </a>
                         </div>
                     </div>
@@ -621,15 +656,21 @@
                         <p class="text-gray-400 mb-6" data-i18n="apps.arabam.desc">
                             Vehicle expense, fuel, and maintenance tracking app. Keep your car's health in check.
                         </p>
-                        <div class="flex space-x-3">
-                            <button disabled class="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 flex items-center justify-center space-x-2 opacity-50 cursor-not-allowed">
-                                <i data-lucide="apple" class="w-5 h-5"></i>
-                                <span class="text-sm font-medium">App Store</span>
-                            </button>
-                            <button disabled class="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 flex items-center justify-center space-x-2 opacity-50 cursor-not-allowed">
-                                <i data-lucide="play" class="w-5 h-5"></i>
-                                <span class="text-sm font-medium" data-i18n="apps.playstore">Play Store</span>
-                            </button>
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <div class="btn-store opacity-40 cursor-not-allowed grayscale">
+                                <i data-lucide="apple" class="w-6 h-6 text-white"></i>
+                                <div class="text-left">
+                                    <div class="text-[10px] uppercase leading-none text-gray-500" data-i18n="apps.comingSoonTo">Coming soon to</div>
+                                    <div class="text-sm font-bold leading-tight text-gray-400">App Store</div>
+                                </div>
+                            </div>
+                            <div class="btn-store opacity-40 cursor-not-allowed grayscale">
+                                <i data-lucide="play" class="w-6 h-6 text-white"></i>
+                                <div class="text-left">
+                                    <div class="text-[10px] uppercase leading-none text-gray-500" data-i18n="apps.comingSoonTo">Coming soon to</div>
+                                    <div class="text-sm font-bold leading-tight text-gray-400" data-i18n="apps.playstore">Play Store</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -958,6 +999,9 @@
                     title: "Apps We've Built",
                     subtitle: "Discover our collection of practical mobile applications designed to solve real-world problems.",
                     playstore: "Play Store",
+                    downloadOn: "Download on the",
+                    getItOn: "Get it on",
+                    comingSoonTo: "Coming soon to",
                     saydim: {
                         desc: "Countdown and special day tracking app. Never miss important dates and celebrate every moment."
                     },
@@ -1072,6 +1116,10 @@
                     title: "Geliştirdiğimiz Uygulamalar",
                     subtitle: "Gerçek dünya problemlerini çözmek için tasarlanmış pratik mobil uygulamalar koleksiyonumuzu keşfedin.",
                     playstore: "Play Store",
+                    downloadOn: "Şuradan İndirin",
+                    getItOn: "Şuradan Alın",
+                    comingSoonTo: "Çok yakında",
+
                     saydim: {
                         desc: "Geri sayım ve özel gün takip uygulaması. Önemli tarihleri asla kaçırmayın ve her anı kutlayın."
                     },
