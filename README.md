@@ -1,14 +1,14 @@
-# HanTech - Mobile App Development Studio
+# KocakTech - Mobile App Development Studio
 
-![HanTech Logo](https://img.shields.io/badge/HanTech-Mobile%20Apps-blue)
+![KocakTech Logo](https://img.shields.io/badge/KocakTech-Mobile%20Apps-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Vercel](https://img.shields.io/badge/deployed%20on-Vercel-black)
 
-Modern, responsive landing page for HanTech - an independent mobile app development studio.
+Modern, responsive landing page for KocakTech - an independent mobile app development studio.
 
 ## 🌐 Live Demo
 
-[https://hantech.vercel.app](https://hantech.vercel.app) - *Deploy edildiğinde link güncellenecek*
+[https://KocakTech.vercel.app](https://KocakTech.vercel.app) - *Deploy edildiğinde link güncellenecek*
 
 ## ✨ Features
 
@@ -105,11 +105,11 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 📧 Contact
 
-- Email: contact@hantech.studio
-- Website: [hantech.studio](https://hantech.studio)
+- Email: contact@KocakTech.studio
+- Website: [KocakTech.studio](https://KocakTech.studio)
 
 ---
 
 <p align="center">
-  Made with ❤️ by HanTech Team
+  Made with ❤️ by KocakTech Team
 </p>

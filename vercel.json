@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "hantech-website",
+  "name": "kocaktech-website",
   "builds": [
     {
       "src": "**/*.html",

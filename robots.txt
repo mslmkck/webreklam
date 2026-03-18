@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://hantech.studio/sitemap.xml
+Sitemap: https://kocaktech.studio/sitemap.xml
