@@ -4,124 +4,75 @@
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Vercel](https://img.shields.io/badge/deployed%20on-Vercel-black)
 
-Modern, responsive landing page for KocakTech - an independent mobile app development studio.
+Modern, responsive landing page for KocakTech, an independent mobile app development studio.
 
-## 🌐 Live Demo
+## Live Demo
 
-[https://KocakTech.vercel.app](https://KocakTech.vercel.app) - *Deploy edildiğinde link güncellenecek*
+[https://kocaktech.vercel.app](https://kocaktech.vercel.app)
 
-## ✨ Features
+## Features
 
-- 🎨 **Modern Design** - Dark mode technology aesthetic with blue-purple gradients
-- 🌍 **Multi-language Support** - English and Turkish (EN/TR)
-- 📱 **Fully Responsive** - Mobile-first design approach
-- 🚀 **Fast Performance** - Optimized static site with CDN delivery
-- 🎭 **Smooth Animations** - AOS scroll animations and hover effects
-- 🔒 **Privacy Policy** - Dedicated privacy policy page
-- ♿ **Accessibility** - Semantic HTML and keyboard navigation support
+- Modern dark technology-focused design
+- English and Turkish language support
+- Fully responsive mobile-first layout
+- Fast static delivery
+- Smooth animations with AOS
+- Dedicated privacy policy page
+- Semantic and accessible HTML structure
 
-## 📱 Apps Portfolio
+## Apps Portfolio
 
 | App | Description | Status | Links |
 |-----|-------------|--------|-------|
-| **Saydım** | Countdown & special day tracking | ✅ Live | [App Store](https://apps.apple.com/tr/app/sayd%C4%B1m/id6759845082) |
-| **Komiserim** | Police exam preparation | ✅ Live | [App Store](https://apps.apple.com/tr/app/komiserim-akademi-pro/id6759722501) · [Play Store](https://play.google.com/store/apps/details?id=com.komiserim.akademi) |
-| **Arabam+** | Vehicle expense tracking | 🚧 Coming Soon | - |
+| **Saydim** | Countdown and special day tracking | Live | [App Store](https://apps.apple.com/tr/app/sayd%C4%B1m/id6759845082) |
+| **Komiserim Akademi Pro** | Police exam preparation | Live | [App Store](https://apps.apple.com/tr/app/komiserim-akademi-pro/id6759722501) / [Play Store](https://play.google.com/store/apps/details?id=com.komiserim.akademi) |
+| **Arabam+** | Vehicle expense tracking | Coming soon | - |
 
-## 🛠️ Tech Stack
+## Tech Stack
 
-- **HTML5** - Semantic markup
-- **Tailwind CSS** - Utility-first CSS framework (via CDN)
-- **JavaScript** - Vanilla JS for interactions
-- **AOS** - Animate On Scroll library
-- **Lucide Icons** - Modern icon library
+- HTML5
+- Tailwind CSS via CDN
+- Vanilla JavaScript
+- Lucide Icons
+- AOS
+- Vercel
 
-## 🚀 Deployment
+## Deployment
 
-### Vercel (Önerilen)
+### Vercel
 
-1. GitHub repo'sunu Vercel'e bağlayın:
-   ```bash
-   # Vercel CLI ile
-   npm i -g vercel
-   vercel
-   ```
+1. Connect the GitHub repository to Vercel.
+2. Create the project from the Vercel dashboard.
+3. Push to the connected branch and let Vercel deploy automatically.
 
-2. Vercel Dashboard üzerinden:
-   - [vercel.com](https://vercel.com)'e gidin
-   - "New Project" tıklayın
-   - GitHub repo'sunu seçin
-   - Deploy edin
-
-### Manuel Deploy
+### Manual Deploy
 
 ```bash
-# Vercel CLI ile
 vercel --prod
 ```
 
-### GitHub Actions ile Otomatik Vercel Deploy
+## Project Structure
 
-Repo artık `master` veya `main` dalına push geldiğinde production deploy çalıştırabilecek bir GitHub Actions workflow içerir:
-
-- Workflow dosyası: `.github/workflows/vercel-production.yml`
-- Gerekli repository secrets:
-  - `VERCEL_TOKEN`
-  - `VERCEL_ORG_ID`
-  - `VERCEL_PROJECT_ID`
-
-Bu secret'lar tanımlandığında workflow sırasıyla `vercel pull`, `vercel build --prod` ve `vercel deploy --prebuilt --prod` komutlarını çalıştırır.
-
-## 📁 Project Structure
-
-```
+```text
 webreklam/
-├── index.html          # Ana sayfa / Main page
-├── privacy.html        # Gizlilik politikası / Privacy policy
-├── vercel.json         # Vercel yapılandırması / Vercel config
-├── README.md           # Proje dökümantasyonu / Documentation
-└── .gitignore          # Git ignore dosyası / Git ignore file
+|-- index.html
+|-- privacy.html
+|-- apps/
+|-- assets/
+|-- vercel.json
+|-- sitemap.xml
+`-- README.md
 ```
 
-## 🌐 Language Support
+## SEO
 
-Site tam olarak iki dilde mevcuttur:
+- Meta descriptions
+- Open Graph tags
+- Semantic HTML structure
+- Mobile viewport optimization
+- Sitemap support
 
-- **English** (🇬🇧)
-- **Türkçe** (🇹🇷)
+## Contact
 
-Dil tercihi localStorage'da saklanır ve sayfalar arasında senkronize çalışır.
-
-## 📝 SEO & Meta Tags
-
-- ✅ Meta descriptions
-- ✅ Open Graph tags
-- ✅ Semantic HTML structure
-- ✅ Mobile viewport optimization
-
-## 🎨 Design System
-
-### Colors
-- **Primary:** `#2563EB` (Blue)
-- **Secondary:** `#7C3AED` (Purple)
-- **Background:** `#020617` / `#0F172A` (Dark)
-- **Accent:** Blue-Purple gradient
-
-### Fonts
-- **Primary:** Inter
-- **Display:** Space Grotesk
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 📧 Contact
-
-- Email: contact@KocakTech.studio
-- Website: [KocakTech.studio](https://KocakTech.studio)
-
----
-
-<p align="center">
-  Made with ❤️ by KocakTech Team
-</p>
+- Email: contact@kocaktech.studio
+- Website: [https://kocaktech.studio](https://kocaktech.studio)
