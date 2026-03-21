@@ -492,6 +492,7 @@ img {
 .gallery-card {
     position: relative;
     overflow: hidden;
+    margin: 0;
 }
 
 .gallery-card.tall {
@@ -700,6 +701,7 @@ img {
 .banner-note {
     display: inline-flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 0.55rem;
     margin-top: 1rem;
     padding: 0.65rem 1rem;
@@ -818,7 +820,46 @@ img {
         align-items: flex-start;
     }
 
+    .cta-row a,
+    .cta-row span {
+        width: 100%;
+        justify-content: center;
+    }
+
     .footer-shell {
         flex-direction: column;
+    }
+}
+
+@media (max-width: 420px) {
+    .visual-wrap {
+        min-height: 440px;
+    }
+
+    .device-card.primary {
+        left: 8px;
+        width: 190px;
+        height: 380px;
+    }
+
+    .device-card.secondary {
+        width: 140px;
+        height: 280px;
+        right: -4px;
+        bottom: 6px;
+    }
+
+    .visual-chip.top {
+        transform: scale(0.82);
+        transform-origin: left top;
+    }
+
+    .visual-chip.bottom {
+        display: none;
+    }
+
+    .mock-dashboard {
+        min-height: 500px;
+        padding: 1rem;
     }
 }

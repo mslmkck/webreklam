@@ -60,6 +60,18 @@ Modern, responsive landing page for KocakTech - an independent mobile app develo
 vercel --prod
 ```
 
+### GitHub Actions ile Otomatik Vercel Deploy
+
+Repo artık `master` veya `main` dalına push geldiğinde production deploy çalıştırabilecek bir GitHub Actions workflow içerir:
+
+- Workflow dosyası: `.github/workflows/vercel-production.yml`
+- Gerekli repository secrets:
+  - `VERCEL_TOKEN`
+  - `VERCEL_ORG_ID`
+  - `VERCEL_PROJECT_ID`
+
+Bu secret'lar tanımlandığında workflow sırasıyla `vercel pull`, `vercel build --prod` ve `vercel deploy --prebuilt --prod` komutlarını çalıştırır.
+
 ## 📁 Project Structure
 
 ```

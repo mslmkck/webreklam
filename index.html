@@ -248,6 +248,104 @@
             background: linear-gradient(135deg, #F59E0B 0%, #EF4444 100%);
         }
 
+        .app-preview-stack {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            padding-top: 2rem;
+        }
+
+        .app-preview-screen {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            object-fit: cover;
+            box-shadow: 0 25px 50px -20px rgba(0, 0, 0, 0.7);
+        }
+
+        .app-preview-screen-primary {
+            width: 9rem;
+            border-radius: 2rem;
+            transform: rotate(-6deg);
+        }
+
+        .app-preview-screen-secondary {
+            width: 7rem;
+            border-radius: 1.75rem;
+            transform: translateY(2.5rem) rotate(6deg);
+        }
+
+        .app-meta-chip {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            z-index: 10;
+            border-radius: 1rem;
+        }
+
+        .app-meta-chip img {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 1rem;
+            object-fit: cover;
+        }
+
+        .app-card-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+        }
+
+        @media (max-width: 640px) {
+            .app-preview-stack {
+                gap: 0.75rem;
+                padding-top: 2.75rem;
+            }
+
+            .app-preview-screen-primary {
+                width: 7.5rem;
+            }
+
+            .app-preview-screen-secondary {
+                width: 5.5rem;
+                transform: translateY(1.75rem) rotate(6deg);
+            }
+
+            .app-meta-chip {
+                top: 0.75rem;
+                left: 0.75rem;
+                padding: 0.6rem 0.75rem;
+            }
+
+            .app-meta-chip img {
+                width: 2.5rem;
+                height: 2.5rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .app-preview-stack {
+                padding-top: 3.25rem;
+            }
+
+            .app-preview-screen-primary {
+                width: 6.5rem;
+            }
+
+            .app-preview-screen-secondary {
+                width: 4.75rem;
+            }
+        }
+
         /* Language Selector Styles */
         .lang-selector {
             position: relative;
@@ -551,16 +649,16 @@
                 <!-- Saydım App -->
                 <div class="glass-card rounded-3xl overflow-hidden app-card" data-aos="fade-up" data-aos-delay="0">
                     <div class="aspect-[4/3] p-6 relative overflow-hidden" style="background: radial-gradient(circle at 20% 20%, rgba(37, 99, 235, 0.28), transparent 35%), radial-gradient(circle at 85% 80%, rgba(236, 72, 153, 0.22), transparent 30%), linear-gradient(180deg, rgba(15, 23, 42, 0.95), rgba(2, 6, 23, 1));">
-                        <div class="absolute top-4 left-4 glass-card rounded-2xl px-4 py-3 flex items-center gap-3 z-10">
+                        <div class="app-meta-chip glass-card">
                             <img src="assets/apps/saydim/icon.jpg" alt="Saydım uygulama ikonu" class="w-12 h-12 rounded-2xl object-cover">
                             <div>
                                 <div class="text-xs text-gray-400 uppercase tracking-[0.18em]">App Store</div>
                                 <div class="font-semibold">Saydım</div>
                             </div>
                         </div>
-                        <div class="absolute inset-0 flex items-center justify-center gap-4 pt-8">
-                            <img src="assets/apps/saydim/screen-1.jpg" alt="Saydım ekran görüntüsü" class="w-36 rounded-[2rem] border border-white/10 shadow-2xl shadow-black/50 -rotate-6">
-                            <img src="assets/apps/saydim/screen-2.jpg" alt="Saydım tema görünümü" class="hidden sm:block w-28 rounded-[1.75rem] border border-white/10 shadow-2xl shadow-black/50 translate-y-10 rotate-6">
+                        <div class="app-preview-stack">
+                            <img src="assets/apps/saydim/screen-1.jpg" alt="Saydım ekran görüntüsü" class="app-preview-screen app-preview-screen-primary">
+                            <img src="assets/apps/saydim/screen-2.jpg" alt="Saydım tema görünümü" class="app-preview-screen app-preview-screen-secondary hidden sm:block">
                         </div>
                     </div>
                     <div class="p-6">
@@ -588,7 +686,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="apps/saydim.html" class="btn-outline rounded-xl px-4 py-3 flex items-center justify-center gap-2 font-medium">
+                            <a href="apps/saydim.html" class="btn-outline app-card-link">
                                 <span>Detaylar</span>
                                 <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
                             </a>
@@ -599,16 +697,16 @@
                 <!-- Komiserim App -->
                 <div class="glass-card rounded-3xl overflow-hidden app-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="aspect-[4/3] p-6 relative overflow-hidden" style="background: radial-gradient(circle at 15% 18%, rgba(79, 70, 229, 0.3), transparent 34%), radial-gradient(circle at 85% 82%, rgba(16, 185, 129, 0.18), transparent 28%), linear-gradient(180deg, rgba(15, 23, 42, 0.95), rgba(2, 6, 23, 1));">
-                        <div class="absolute top-4 left-4 glass-card rounded-2xl px-4 py-3 flex items-center gap-3 z-10">
+                        <div class="app-meta-chip glass-card">
                             <img src="assets/apps/komiserim/appstore-icon.jpg" alt="Komiserim Akademi Pro uygulama ikonu" class="w-12 h-12 rounded-2xl object-cover">
                             <div>
                                 <div class="text-xs text-gray-400 uppercase tracking-[0.18em]">iOS + Android</div>
                                 <div class="font-semibold">Komiserim</div>
                             </div>
                         </div>
-                        <div class="absolute inset-0 flex items-center justify-center gap-4 pt-8">
-                            <img src="assets/apps/komiserim/appstore-screen-1.jpg" alt="Komiserim App Store ekranı" class="w-32 rounded-[2rem] border border-white/10 shadow-2xl shadow-black/50 -rotate-6">
-                            <img src="assets/apps/komiserim/play-screen-1.png" alt="Komiserim Google Play ekranı" class="hidden sm:block w-40 rounded-[1.6rem] border border-white/10 shadow-2xl shadow-black/50 rotate-6">
+                        <div class="app-preview-stack">
+                            <img src="assets/apps/komiserim/appstore-screen-1.jpg" alt="Komiserim App Store ekranı" class="app-preview-screen app-preview-screen-primary">
+                            <img src="assets/apps/komiserim/play-screen-1.png" alt="Komiserim Google Play ekranı" class="app-preview-screen app-preview-screen-secondary hidden sm:block">
                         </div>
                     </div>
                     <div class="p-6">
@@ -636,7 +734,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <a href="apps/komiserim-akademi-pro.html" class="btn-outline rounded-xl px-4 py-3 flex items-center justify-center gap-2 font-medium">
+                            <a href="apps/komiserim-akademi-pro.html" class="btn-outline app-card-link">
                                 <span>Detaylar</span>
                                 <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
                             </a>
@@ -647,9 +745,9 @@
                 <!-- Arabam+ App - Coming Soon -->
                 <div class="glass-card rounded-3xl overflow-hidden app-card relative" data-aos="fade-up" data-aos-delay="200">
                     <div class="aspect-[4/3] p-6 relative overflow-hidden" style="background: radial-gradient(circle at 20% 20%, rgba(16, 185, 129, 0.28), transparent 35%), radial-gradient(circle at 80% 80%, rgba(249, 115, 22, 0.2), transparent 28%), linear-gradient(180deg, rgba(15, 23, 42, 0.95), rgba(2, 6, 23, 1));">
-                        <div class="coming-soon-badge absolute top-4 right-4 px-4 py-2 rounded-full text-white font-semibold text-sm z-10">Çok Yakında</div>
+                        <div class="coming-soon-badge absolute top-3 right-3 sm:top-4 sm:right-4 px-3 sm:px-4 py-2 rounded-full text-white font-semibold text-xs sm:text-sm z-10">Çok Yakında</div>
                         <div class="relative h-full rounded-[2rem] border border-white/10 bg-slate-950/70 p-4 flex flex-col justify-between shadow-2xl shadow-black/50">
-                            <div class="flex items-center justify-between gap-3">
+                            <div class="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
                                 <div class="flex items-center gap-3">
                                     <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-green-500 to-primary flex items-center justify-center">
                                         <i data-lucide="car" class="w-6 h-6 text-white"></i>
@@ -661,7 +759,7 @@
                                 </div>
                                 <span class="text-xs text-emerald-300 font-medium">Planlanan</span>
                             </div>
-                            <div class="grid grid-cols-2 gap-3">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                 <div class="glass-card rounded-2xl p-3">
                                     <div class="text-xs text-gray-400 uppercase">Yakıt</div>
                                     <div class="font-semibold mt-2">Dolum geçmişi</div>
@@ -712,7 +810,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="apps/arabam-plus.html" class="btn-outline rounded-xl px-4 py-3 flex items-center justify-center gap-2 font-medium">
+                            <a href="apps/arabam-plus.html" class="btn-outline app-card-link">
                                 <span>Detaylar</span>
                                 <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
                             </a>
