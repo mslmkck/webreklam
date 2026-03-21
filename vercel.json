@@ -3,11 +3,7 @@
   "name": "kocaktech-website",
   "builds": [
     {
-      "src": "**/*.html",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "*.txt",
+      "src": "**/*",
       "use": "@vercel/static"
     }
   ],
